@@ -25,7 +25,7 @@
         </referenceContainer>
 
         <referenceContainer name="main.content">
-            <block class="Qdigital\Theme\Block\Categories" name="Categories" before="-" template="Qdigital_Theme::categories.phtml" />
+            <!-- <block class="Qdigital\Theme\Block\Categories" name="Categories" before="-" template="Qdigital_Theme::categories.phtml" /> -->
 
         </referenceContainer>
     </body>

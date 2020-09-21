@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <referenceContainer name="header.panel.wrapper" htmlClass="header-top panel wrapper" htmlTag="div" before="-">
+                <referenceContainer name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="header-top-content panel header">
+                    <block class="Magento\Theme\Block\Html\Header\Logo" name="logo"/>
+                </referenceContainer>
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header-bot" remove="true">
+            </referenceContainer>
+        </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo_footer"/>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="main.content">
+            <!-- <block class="Qdigital\Theme\Block\Categories" name="Categories" before="-" template="Qdigital_Theme::categories.phtml" /> -->
+
+        </referenceContainer>
+    </body>
+</page>

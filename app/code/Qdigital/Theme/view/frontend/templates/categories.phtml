@@ -1,22 +1,32 @@
 <?php
-
   /**
    * @var \Mageplaza\HelloWorld\Block\Display $block
    */
-
-  // $result = $block->getCategories();
-  // echo "<div class='menu-categories'>";
-  // foreach ($result as $key => $value) {
-  //   // $arr[3] will be updated with each value from $arr...
-  //   echo "<button class = 'dropdown-toggle' id_cat='{$key}'>" 
-  //   .  "{$value}" 
-  //   . "</button>";
-  // }
-  // echo "</div>";
-
-  // foreach ($result as $key => $value) {
-  //   echo "<div class = 'lnt-dropdown-mega-menu' id_cat_block='{$key}' style = 'display: none' >block info - {$value}</div>";
-  // }
+  $result = $block->getCategories();
 ?>
 
+<div class='menu-categories'>
+  <?php foreach ($result as $cat => $value):?>
+    <?php if($cat != 0):?>
+      <a class ='dropdown-toggle' id_cat='<?=$cat?>'>
+        <?= $value[0] ?> 
+      </a>
+    <?php endif;?>
+  <?php endforeach;?>
+</div>
 
+<div class='menu-categories'>
+  <?php foreach ($result as $cat => $value): ?>
+    <div class = 'lnt-dropdown-mega-menu' id_cat_block='<?=$cat?>' style = 'display: none' >
+      <div class='lnt-category'>
+        <ui>
+          <?php foreach ($value as $i => $val):?>
+            <?php if( $i != 0 ):?>
+              <li><a><?=$val?></a></li>
+            <?php endif;?>
+            <?php endforeach;?>
+        </ui>
+      </div>
+    </div>
+  <?php endforeach;?>
+</div>

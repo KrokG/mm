@@ -5,6 +5,6 @@
 
 var config = {
     deps: [
-        'Magento_Theme/web/js/theme.js'
+        'Magento_Theme/js/main'
     ]
 };

@@ -2,6 +2,7 @@
 namespace Qdigital\Theme\Block;
 use Magento\Framework\App\ObjectManager;
 use Magento\Catalog\Model\ResourceModel\Category as CategoryResource;
+use Magento\Catalog\Model\ProductCategoryList;
 class Categories extends \Magento\Framework\View\Element\Template
 {
 	/**
@@ -10,7 +11,7 @@ class Categories extends \Magento\Framework\View\Element\Template
 	protected $_productCollectionFactory;
 
 	public function __construct(
-			\Magento\Backend\Block\Template\Context $context,        
+			\Magento\Backend\Block\Template\Context $context,
 			\Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
 	)
 	{    

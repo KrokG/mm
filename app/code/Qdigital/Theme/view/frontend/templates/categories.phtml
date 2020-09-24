@@ -24,14 +24,17 @@
   <div class='lnt-category'>
     <ui>
       <?php foreach ($subCategories as $id => $subCategory): ?>
-          <li class='subCategory' parent_cat_id='<?= $subCategory->getParentCategory()->getId();?>'><a><?=$subCategory->getName()?></a></li>
+          <li class='subCategory' parent_cat_id='<?= $subCategory->getParentCategory()->getId();?>' cat_id='<?= $subCategory->getId()?>'><a><?=$subCategory->getName()?></a></li>
       <?php endforeach;?>
     </ui>
   </div>
   <!-- products container -->
   <div class='product-list'>
     <?php foreach($products as $id => $product):?>
-      <div class='product'>
+      <?php $idsCategory = $product->getCategoryIds()?>
+      <div class='product<?php foreach($idsCategory as $idCategory){
+                            echo ' id-sub-category-'.$idCategory;
+                          }?>'>
 
         <?php
         $objectManager =\Magento\Framework\App\ObjectManager::getInstance();
@@ -42,8 +45,8 @@
                         ->resize(380)
                         ->getUrl();
         ?>
-        <div><img src="<?= $imageUrl?>"></img></div>
         <div><?= $product->getName()?></div>
+        <div calss='produc-img-container'><img class= 'product-img' src="<?= $imageUrl?>"></img></div>
         <ui>
           <li>intel core</li>
         </ui>

@@ -8,7 +8,7 @@ define([
 ], function ($) {
   'use strict';
 
-  let showElement = null;
+
   let btnToggle = null;
   $('.dropdown-toggle').click(function(e) {
     $('.lnt-dropdown-mega-menu').show();
@@ -21,15 +21,29 @@ define([
     console.log(idCat);
     $(`.subCategory[parent_cat_id=${idCat}]`).show();
 
+    $('.product').hide();
+    $(`.id-sub-category-${idCat}`).show();
+
   });
 
-  $('.subCategory').hover(() => {
-    console.log(this);
+  let oldSubCategoryId = null; 
+  $('.subCategory').hover((e) => {
+    let subCategoryId = $(e.target).attr('cat_id')
+    if(subCategoryId != oldSubCategoryId){
+      $('.product').hide();
+      $(`.id-sub-category-${subCategoryId}`).show();
+      oldSubCategory = subCategoryId;
+    }
   });
 
-  $(document).click(()=>{
-    console.log($(this));
-  });
+  $(document).mouseup(function (e){ // событие клика по веб-документу
+		let block = $(".lnt-dropdown-mega-menu"); // тут указываем ID элемента
+		if (!block.is(e.target) // если клик был не по нашему блоку
+		    && block.has(e.target).length === 0) { // и не по его дочерним элементам
+      block.hide(); // скрываем его
+      if(btnToggle != null)btnToggle.removeClass("dropdown-toggle-active");
+		}
+	});
 
   
 });

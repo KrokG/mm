@@ -11,16 +11,25 @@ define([
   let showElement = null;
   let btnToggle = null;
   $('.dropdown-toggle').click(function(e) {
-    let id = this.getAttribute('id_cat');
-    if(showElement != null){ 
-      showElement.hide(0);
-      btnToggle.removeClass("dropdown-toggle-active");
-    }  
-    showElement = $(`.lnt-dropdown-mega-menu[id_cat_block='${id}']`);
-    showElement.show(0);
+    $('.lnt-dropdown-mega-menu').show();
+    if(btnToggle != null)btnToggle.removeClass("dropdown-toggle-active");
     btnToggle = $(this);
     btnToggle.addClass("dropdown-toggle-active");
 
+    $(`.subCategory`).hide();
+    let idCat = btnToggle.attr('id_cat')
+    console.log(idCat);
+    $(`.subCategory[parent_cat_id=${idCat}]`).show();
 
   });
+
+  $('.subCategory').hover(() => {
+    console.log(this);
+  });
+
+  $(document).click(()=>{
+    console.log($(this));
+  });
+
+  
 });
